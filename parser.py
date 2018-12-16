@@ -10,13 +10,10 @@ def customizations(record):
     record = type(record)
     record = author(record)
     record = editor(record)
-    record = journal(record)
-    record = keyword(record)
     return record
 
-with open('sample.bib') as bibtex_file:
+with open('database_sample.bib') as bibtex_file:
     parser = BibTexParser()
     parser.customization = customizations
     bib_database = bibtexparser.load(bibtex_file, parser=parser)
     print(bib_database.entries)
-

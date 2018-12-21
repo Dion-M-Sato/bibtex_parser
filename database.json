@@ -1,0 +1,48 @@
+{
+ "metadata": {
+  "collection": "database_sample",
+  "created": "2018-12-21T04:50:49.990309",
+  "source": "database_sample.bib",
+  "records": 2
+ },
+ "records": [
+  {
+   "type": "article",
+   "id": "2012",
+   "citekey": "2012",
+   "collection": "database_sample",
+   "title": "\u7814\u7a76\u5ba4\u5411\u3051BibTEX\u6587\u732e\u7ba1\u7406\u30b7\u30b9\u30c6\u30e0",
+   "year": "2012",
+   "author": [
+    {
+     "name": "\u698e\u539f, \u535a\u4e4b"
+    },
+    {
+     "name": "\u5927\u585a, \u9686\u5f18"
+    },
+    {
+     "name": "\u5c71\u4e0a\u60a0\u559c, "
+    }
+   ],
+   "journal": {
+    "volume": "53",
+    "number": "8",
+    "pages": "2049--2060",
+    "name": "\u60c5\u5831\u51e6\u7406\u5b66\u4f1a\u8ad6\u6587\u8a8c"
+   }
+  },
+  {
+   "type": "article",
+   "id": "Hartmann1996",
+   "citekey": "Hartmann1996",
+   "collection": "database_sample",
+   "title": "The World as a Process: Simulations in the Natural and Social Sciences",
+   "year": "1996",
+   "author": [
+    {
+     "name": "Hartmann, Stephan"
+    }
+   ]
+  }
+ ]
+}

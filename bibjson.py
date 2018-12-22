@@ -4,7 +4,6 @@ https://github.com/internaut/bibtex2bibjson/blob/master/bibjson.py
 import sys
 import logging
 
-from collections import OrderedDict
 
 import bibtexparser
 from bibtexparser.bparser import BibTexParser
@@ -37,8 +36,8 @@ def collection_from_dict(entries, **kwargs):
     :param kwargs: metadata for the BibJSON collection. "collection" parameter must be set.
     :return BibJSON collection dictionary
     """
-    c = OrderedDict()
-    c['metadata'] = OrderedDict()
+    c = dict()
+    c['metadata'] = dict()
     c['records'] = []
 
     # set metadata from kwargs
@@ -65,7 +64,7 @@ def record_from_entry(key, entry, collection):
     :return BibJSON record
     """
     # create new record
-    r = OrderedDict()
+    r = dict()
     r['type'] = entry['ENTRYTYPE']
     r['id'] = key
     r['citekey'] = key
@@ -89,7 +88,7 @@ def fill_record_article(r, entry):
     :param entry: bibtexparser entry that will be used to fill the BibJSON record
     :return None
     """
-    _require_keys_in_entry(entry, ('title', 'year', 'author', 'journal'), req_all=True)
+    _require_keys_in_entry(entry, ('title', 'year', 'author','journal'), req_all=True)
 
     _simple_fill(r, entry, ('title', 'year', 'note', 'key'))
 

@@ -12,7 +12,6 @@ import bibjson
 import os
 import json
 from datetime import datetime
-from collections import OrderedDict
 import codecs
 
 def main():
@@ -42,8 +41,28 @@ def main():
                 )
 
         # print it to stdout with nice indentation
-        json.dump(bibjson_collection, sys.stdout, indent=True)
-        
+        k = 0
+        while True:
+            try:
+                article = bibjson_collection['records'][k]
+                print(article)
+                bib_author_pre = article['author'][0]
+                bib_author = bib_author_pre['name']
+                print(bib_author)
+                bib_title = article['title']
+                print(bib_title)
+                bib_journal_number = article['journal']['number']
+                print(bib_journal_number)
+                bib_journal_volume = article['journal']['volume']
+                print(bib_journal_volume)
+                bib_journal_name = article['journal']['name']
+                print(bib_journal_name)
+                bib_year = article['year']
+                print(bib_year)
+                print(bib_author+bib_title+bib_journal_name+bib_journal_number+bib_journal_volume+bib_year)
+                k +=  1
+            except IndexError:
+                break
 
 if __name__ == '__main__':
     main()

@@ -13,6 +13,7 @@ import os
 import json
 from datetime import datetime
 import codecs
+import re
 
 def main():
     """
@@ -45,22 +46,43 @@ def main():
         while True:
             try:
                 article = bibjson_collection['records'][k]
-                print(article)
-                bib_author_pre = article['author'][0]
-                bib_author = bib_author_pre['name']
-                print(bib_author)
-                bib_title = article['title']
-                print(bib_title)
-                bib_journal_number = article['journal']['number']
-                print(bib_journal_number)
-                bib_journal_volume = article['journal']['volume']
-                print(bib_journal_volume)
-                bib_journal_name = article['journal']['name']
-                print(bib_journal_name)
-                bib_year = article['year']
-                print(bib_year)
-                print(bib_author+bib_title+bib_journal_name+bib_journal_number+bib_journal_volume+bib_year)
-                k +=  1
+                bib_counter = article['author']
+                if len(bib_counter)==1:
+                    bib_author_pre = article['author'][0]
+                    bib_author = bib_author_pre['name']
+                    author = re.sub(r', ','', bib_author)
+                    bib_title = article['title']
+                    bib_journal_number = article['journal']['number']
+                    bib_journal_volume = article['journal']['volume']
+                    bib_journal_name = article['journal']['name']
+                    bib_year = article['year']
+                    print(author+'，「'+bib_title+'」，『'+bib_journal_name+'』，'+bib_journal_volume+'巻，'+bib_journal_number+'号，'+bib_year+'年．')
+                    k +=  1
+                #When it is article which collaborations.
+                if article['type'] == "article":
+                    elif bib_counter = 2:
+                          bib_author_pre = article['author'][0][1]
+                          bib_author = bib_author_pre['name']
+                          author = re.sub(r', ','', bib_author)
+                          bib_title = article['title']
+                          bib_journal_number = article['journal']['number']
+                          bib_journal_volume = article['journal']['volume']
+                          bib_journal_name = article['journal']['name']
+                          bib_year = article['year']
+                          print(author+'，「'+bib_title+'」，『'+bib_journal_name+'』，'+bib_journal_volume+'巻，'+bib_journal_number+'号，'+bib_year+'年．')
+                          k +=  1
+                      elif bib_counter = 3:
+                            bib_author_pre = article['author'][0][1]
+                            bib_author = bib_author_pre['name']
+                            author = re.sub(r', ','', bib_author)
+                            bib_title = article['title']
+                            bib_journal_number = article['journal']['number']
+                            bib_journal_volume = article['journal']['volume']
+                            bib_journal_name = article['journal']['name']
+                            bib_year = article['year']
+                            print(author+'，「'+bib_title+'」，『'+bib_journal_name+'』，'+bib_journal_volume+'巻，'+bib_journal_number+'号，'+bib_year+'年．')
+                            k +=  1
+ 
             except IndexError:
                 break
 
